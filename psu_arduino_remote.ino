@@ -148,6 +148,7 @@ void turn_on()
 
 void ramp(float a, float b, float i)
 {
+  // ramps voltage between float a and b using increment float i
   if (a < b)
   {
     float v = a;
