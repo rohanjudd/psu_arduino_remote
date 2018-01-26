@@ -90,7 +90,7 @@ void check_buttons()
       case 4: //Button 3 Pressed
         all_leds(false);
         digitalWrite(LED[2], HIGH);
-       ramp(2,4,0.02);
+       ramp(2,3.7,0.02);
         break;
       case 8: //Button 4 Pressed
         all_leds(false);
@@ -149,23 +149,24 @@ void turn_on()
 void ramp(float a, float b, float i)
 {
   // ramps voltage between float a and b using increment float i
+  turn_on();
   if (a < b)
   {
     float v = a;
     while (v < b)
     {
       set_voltage(v);
-      delay(25);
+      delay(30);
       v += i;
     }
-    delay(1000);
+    delay(2000);
     while (v >= a)
     {
       set_voltage(v);
-      delay(25);
+      delay(30);
       v -= i;
     }
-    
+  turn_off();
   }
   else
     Serial.println("Ramp Error");
