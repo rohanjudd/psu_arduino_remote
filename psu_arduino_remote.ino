@@ -21,8 +21,8 @@ const int NUM_LEDS = 6;
 const int LED[NUM_LEDS] = {13, 14, 15, 16, 17, 18};
 const int NUM_BUTTONS = 6;
 const int BUTTON[NUM_BUTTONS] = {2, 3, 4, 5, 6, 7};
-const int NUM_PRESETS = 4;
-const float PRESET[NUM_PRESETS] = {0, 6.8, 13, 18.2};
+const int NUM_PRESETS = 5;
+const float PRESET[NUM_PRESETS] = {0, 6.8, 13, 18.2, 14};
 
 const int RESET_DELAY = 800;
 const int LOOP_DELAY = 100;
@@ -90,7 +90,8 @@ void check_buttons()
       case 4: //Button 3 Pressed
         all_leds(false);
         digitalWrite(LED[2], HIGH);
-       ramp(2,3.7,0.02);
+       //ramp(2,3.7,0.02);
+       reset_at_voltage(PRESET[4]);
         break;
       case 8: //Button 4 Pressed
         all_leds(false);
